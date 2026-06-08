@@ -1,0 +1,123 @@
+# =============================================
+# NexoPlus - Example Items
+# Đặt file này tại: plugins/NexoPlus/items/
+# =============================================
+
+# ===== SWORD VÍ DỤ =====
+ruby_sword:
+  material: DIAMOND_SWORD
+  display_name: "<red>✦ Ruby Sword"
+  custom_model_data: 1001
+  Pack:
+    textures: item/ruby_sword.png
+  lore:
+    - "<gray>Thanh kiếm từ hồng ngọc"
+    - ""
+    - "<red>⚔ +15 Attack Damage"
+    - "<yellow>✦ Rare"
+  unbreakable: true
+  glow: true
+  enchantments:
+    sharpness: 5
+    fire_aspect: 2
+    unbreaking: 3
+  attributes:
+    GENERIC_ATTACK_DAMAGE:
+      amount: 15.0
+      operation: ADD_NUMBER
+      slot: HAND
+    GENERIC_ATTACK_SPEED:
+      amount: -2.4
+      operation: ADD_NUMBER
+      slot: HAND
+  weapon:
+    enabled: true
+    attack_damage: 15.0
+    attack_speed: 1.6
+  item_flags:
+    - HIDE_ATTRIBUTES
+  tags:
+    - weapon
+    - sword
+    - premium
+  permissions:
+    use: nexoplus.use
+
+# ===== FOOD VÍ DỤ =====
+magic_apple:
+  material: APPLE
+  display_name: "<gold>✦ Magic Apple"
+  custom_model_data: 2001
+  Pack:
+    textures: item/magic_apple.png
+  lore:
+    - "<gray>Quả táo phép thuật"
+    - "<green>Hồi phục ngay lập tức"
+  food:
+    enabled: true
+    nutrition: 10
+    saturation: 8.0
+    can_always_eat: true
+  mechanics:
+    regen:
+      type: POTION_EFFECT
+      effect: REGENERATION
+      duration: 200
+      amplifier: 2
+    speed:
+      type: POTION_EFFECT
+      effect: SPEED
+      duration: 300
+      amplifier: 1
+    sound:
+      type: SOUND
+      sound: ENTITY_PLAYER_LEVELUP
+      volume: 0.5
+      pitch: 1.2
+
+# ===== ARMOR VÍ DỤ =====
+ruby_helmet:
+  material: LEATHER_HELMET
+  display_name: "<red>Ruby Helmet"
+  custom_model_data: 3001
+  Pack:
+    textures: item/ruby_helmet.png
+  armor:
+    enabled: true
+    texture: armor/ruby
+    color: "#CC2244"
+  attributes:
+    GENERIC_ARMOR:
+      amount: 4.0
+      operation: ADD_NUMBER
+      slot: HEAD
+  item_flags:
+    - HIDE_DYE
+
+# ===== FURNITURE VÍ DỤ =====
+oak_chair:
+  material: PAPER
+  display_name: "<yellow>Oak Chair"
+  custom_model_data: 4001
+  Pack:
+    textures: item/oak_chair.png
+    generate_3d_model: true
+  lore:
+    - "<gray>Ngồi xuống đây!"
+  furniture:
+    enabled: true
+    solid: false
+    rotatable: true
+    hitbox:
+      enabled: true
+      type: SMALL
+      width: 0.8
+      height: 1.0
+    light:
+      enabled: false
+    place_sound: WOOD_PLACE
+    break_sound: WOOD_BREAK
+  placeable: true
+  tags:
+    - furniture
+    - decoration

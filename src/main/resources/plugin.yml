@@ -1,0 +1,57 @@
+name: NexoPlus
+version: '${project.version}'
+main: dev.nexoplus.core.NexoPlus
+api-version: '1.13'
+description: Advanced ResourcePack & Custom Items plugin - Better than ItemsAdder
+authors: [NexoPlus Team]
+website: https://nexoplus.dev
+
+softdepend:
+  - PlaceholderAPI
+  - Vault
+  - WorldGuard
+  - ProtocolLib
+
+commands:
+  nexoplus:
+    description: Main NexoPlus command
+    aliases: [nxp, nexo]
+    usage: /nexoplus <subcommand>
+    permission: nexoplus.admin
+
+  give:
+    description: Give a custom item
+    aliases: [igive, nxpgive]
+    usage: /give <player> <item_id> [amount]
+    permission: nexoplus.give
+
+  recipe:
+    description: View/manage custom recipes
+    usage: /recipe <view|add|remove> [id]
+    permission: nexoplus.recipe
+
+  resourcepack:
+    description: ResourcePack management
+    aliases: [rp, pack]
+    usage: /resourcepack <generate|send|reload>
+    permission: nexoplus.resourcepack
+
+permissions:
+  nexoplus.admin:
+    description: Full admin access to NexoPlus
+    default: op
+  nexoplus.give:
+    description: Allow giving custom items
+    default: op
+  nexoplus.recipe:
+    description: Allow managing custom recipes
+    default: op
+  nexoplus.resourcepack:
+    description: Allow managing resource pack
+    default: op
+  nexoplus.use:
+    description: Allow using NexoPlus items
+    default: true
+  nexoplus.bypass:
+    description: Bypass NexoPlus restrictions
+    default: op
