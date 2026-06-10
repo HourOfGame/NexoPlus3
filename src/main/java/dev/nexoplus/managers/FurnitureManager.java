@@ -82,26 +82,26 @@ public class FurnitureManager {
         if (baseEntity == null) return false;
 
         baseEntity.getPersistentDataContainer().set(FURNITURE_ID_KEY, PersistentDataType.STRING, nexoItem.getId());
-        furnitureEntities.put(baseEntity.getUUID(), nexoItem.getId());
+        furnitureEntities.put(baseEntity.getUniqueId(), nexoItem.getId());
 
         // === 2. Interaction entity (hitbox) ===
         if (props.isHasHitbox()) {
-            Entity interaction = spawnInteractionEntity(location, props, baseEntity.getUUID());
+            Entity interaction = spawnInteractionEntity(location, props, baseEntity.getUniqueId());
             if (interaction != null) {
-                components.add(interaction.getUUID());
-                furnitureEntities.put(interaction.getUUID(), nexoItem.getId());
+                components.add(interaction.getUniqueId());
+                furnitureEntities.put(interaction.getUniqueId(), nexoItem.getId());
             }
         }
 
         // === 3. Seats ===
         if (props.isHasSeats() && props.getSeats() != null) {
             for (NexoItem.SeatData seat : props.getSeats()) {
-                Entity seatEntity = spawnSeat(location, seat, baseEntity.getUUID());
-                if (seatEntity != null) components.add(seatEntity.getUUID());
+                Entity seatEntity = spawnSeat(location, seat, baseEntity.getUniqueId());
+                if (seatEntity != null) components.add(seatEntity.getUniqueId());
             }
         }
 
-        furnitureComponents.put(baseEntity.getUUID(), components);
+        furnitureComponents.put(baseEntity.getUniqueId(), components);
 
         // === 4. Play sound ===
         if (props.getPlaceSound() != null) {
@@ -109,7 +109,7 @@ public class FurnitureManager {
         }
 
         // === 5. Save to DB ===
-        saveFurnitureToDB(baseEntity.getUUID(), nexoItem.getId(), location, yaw);
+        saveFurnitureToDB(baseEntity.getUniqueId(), nexoItem.getId(), location, yaw);
 
         return true;
     }
@@ -214,7 +214,7 @@ public class FurnitureManager {
         Location dropLocation = entity.getLocation();
 
         // Remove all component entities
-        removeAllComponents(baseUUID != null ? baseUUID : entity.getUUID());
+        removeAllComponents(baseUUID != null ? baseUUID : entity.getUniqueId());
 
         // Remove base entity
         if (baseEntity != null) baseEntity.remove();
@@ -229,7 +229,7 @@ public class FurnitureManager {
         }
 
         // Remove from DB
-        removeFurnitureFromDB(baseUUID != null ? baseUUID : entity.getUUID());
+        removeFurnitureFromDB(baseUUID != null ? baseUUID : entity.getUniqueId());
 
         return true;
     }
@@ -364,7 +364,7 @@ public class FurnitureManager {
                     // Respawn visual entity (don't save again to DB)
                     Entity base = spawnDisplayEntity(item, loc, yaw);
                     if (base != null) {
-                        furnitureEntities.put(base.getUUID(), itemId);
+                        furnitureEntities.put(base.getUniqueId(), itemId);
                         respawned++;
                     }
                 } catch (Exception ignored) {}
