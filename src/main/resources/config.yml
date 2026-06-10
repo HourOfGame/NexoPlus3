@@ -1,0 +1,31 @@
+resourcepack:
+  # Tự động build pack khi server khởi động
+  auto_generate: true
+  # Tự động gửi pack cho player khi join
+  auto_send: true
+  # Bắt buộc player phải dùng pack
+  required: false
+  # Pack format: để -1 để tự động detect theo version server
+  # 1.21.4+ = 46 | 1.21.1 = 34 | 1.20.6 = 22 | 1.20.1 = 15 | 1.19.4 = 13
+  pack_format: -1
+  description: "NexoPlus ResourcePack"
+  prompt_message: "Please accept the resource pack to see custom items!"
+
+  # === Pack Hosting ===
+  use_builtin_host: true
+  host_port: 8080
+  # Nếu dùng URL ngoài:
+  # url: "https://cdn.yourserver.com/pack.zip"
+
+database:
+  type: SQLITE
+  mysql:
+    host: localhost
+    port: 3306
+    database: nexoplus
+    username: root
+    password: ""
+
+settings:
+  debug: false
+  conflict_resolver: true

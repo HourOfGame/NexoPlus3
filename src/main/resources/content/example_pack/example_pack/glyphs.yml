@@ -1,0 +1,21 @@
+# =============================================
+# NexoPlus Glyphs - Apply images to font chars
+# =============================================
+# Put your PNG into: pack/textures/font/
+# Then use in display_name: "<glyph:example_pack:heart>"
+
+heart:
+  texture: font/heart.png   # -> pack/textures/font/heart.png
+  height: 16                # Size in pixels (adjust freely!)
+  ascent: 8                 # Vertical offset (-16 to 16)
+  # char: auto-assigned (or set manually e.g. "\uE001")
+
+energy_bar:
+  texture: font/energy_bar.png
+  height: 10
+  ascent: -10               # Negative = moves image DOWN (good for action bars)
+
+coin_icon:
+  texture: font/coin.png
+  height: 14
+  ascent: 7
