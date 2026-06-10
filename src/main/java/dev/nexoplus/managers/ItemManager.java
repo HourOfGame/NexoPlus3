@@ -396,8 +396,7 @@ public class ItemManager {
     }
 
     private void createDefaultItems() {
-        // Create example items YAML
-        File exampleFile = new File(itemsFolder, "example_items.yml");
-        plugin.saveResource("items/example_items.yml", false);
+        // Items are now managed via content/ packs - no default file needed
+        plugin.getLogger().info("Items folder created. Add item YAMLs to plugins/NexoPlus/items/ or use content/ packs.");
     }
 }
